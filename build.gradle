@@ -1,0 +1,48 @@
+buildscript {
+    ext {
+        kotlin_version = '1.2.0'
+        nebula_project_version = '3.4.0'
+        nebula_release_version = '6.1.0'
+    }
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "com.netflix.nebula:nebula-project-plugin:$nebula_project_version"
+        classpath "com.netflix.nebula:nebula-release-plugin:$nebula_release_version"
+    }
+}
+
+apply plugin: 'kotlin2js'
+apply plugin: 'nebula.project'
+apply plugin: 'nebula.release'
+
+group = 'com.github.rivasdiaz'
+
+ext {
+    gradle_version = '4.3.1'
+    kotlin_react_version = '16.0.0-pre.13-kotlin-1.2.0'
+}
+
+repositories {
+    jcenter()
+    maven { url 'https://kotlin.bintray.com/kotlin-js-wrappers' }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = gradle_version
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
+    compile "org.jetbrains:kotlin-react-dom:$kotlin_react_version"
+}
+
+compileKotlin2Js {
+    kotlinOptions {
+        moduleKind = 'commonjs'
+        sourceMap = true
+        sourceMapEmbedSources = 'always'
+    }
+}
