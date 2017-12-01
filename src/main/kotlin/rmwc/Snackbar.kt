@@ -11,6 +11,7 @@ fun RBuilder.snackbar(
         multiline: Boolean = false,
         actionOnBottom: Boolean = false,
         dismissesOnAction: Boolean = true,
+        alignStart: Boolean = false,
         handler: RHandler<SnackbarProps>) = child(SnackbarComponent::class) {
     attrs {
         this.show = show
@@ -20,6 +21,7 @@ fun RBuilder.snackbar(
         this.multiline = multiline
         this.actionOnBottom = actionOnBottom
         this.dismissesOnAction = dismissesOnAction
+        this.alignStart = alignStart
     }
     handler()
 }
