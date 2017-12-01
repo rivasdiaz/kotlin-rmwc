@@ -15,6 +15,6 @@ external interface TypographyProps: SimpleTagProps {
 }
 
 @JsName("Typography")
-external class TypographyComponent : React.Component<TypographyProps, RState> {
+external class TypographyComponent: React.Component<TypographyProps, RState> {
     override fun render(): ReactElement
 }

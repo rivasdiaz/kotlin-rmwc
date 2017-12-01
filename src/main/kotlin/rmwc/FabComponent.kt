@@ -5,13 +5,15 @@ import react.RState
 import react.React
 import react.ReactElement
 
-external interface FabProps: SimpleTagProps, WithRippleProps {
+external interface FabRootProps: SimpleTagProps, WithRippleProps {
 
     /** Make the Fab smaller. */
     var mini: Boolean?
 }
 
+external interface FabProps: FabRootProps
+
 @JsName("Fab")
-external class FabComponent : React.Component<FabProps, RState> {
+external class FabComponent: React.Component<FabProps, RState> {
     override fun render(): ReactElement
 }
