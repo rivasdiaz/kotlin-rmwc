@@ -2,9 +2,8 @@ package rmwc
 
 import react.RBuilder
 import react.RHandler
-import react.RProps
 
-fun RBuilder.grid(handler: RHandler<RProps>) = child(GridComponent::class, handler)
+fun RBuilder.grid(handler: RHandler<SimpleTagProps>) = child(GridComponent::class, handler)
 
 fun RBuilder.gridCell(handler: RHandler<GridCellProps>) = child(GridCellComponent::class, handler)
 
